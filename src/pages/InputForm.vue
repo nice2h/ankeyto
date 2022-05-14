@@ -1,18 +1,18 @@
 <script setup>
 import { ref } from 'vue'
+
 import { storeToRefs } from 'pinia';
 import { inputFormStore } from "../store/inputForm.js"
 const store = inputFormStore();
 const {title} = storeToRefs(store);
-console.log(title.value);
+
+import FormTitle from "../components/FormTitle.vue"
 
 </script>
 
 <template>
 
-  <p>
-{{title}}
-  </p>
+<FormTitle />
 
 
 </template>

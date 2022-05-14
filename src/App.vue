@@ -1,6 +1,6 @@
 <script setup>
-import LandingPage from './components/LandingPage.vue'
-import InputForm from './components/InputForm.vue'
+import LandingPage from './pages/LandingPage.vue'
+import InputForm from './pages/InputForm.vue'
 </script>
 
 <template>
