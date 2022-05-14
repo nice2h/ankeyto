@@ -9,10 +9,8 @@ const {status} = storeToRefs(store);
 import FormTitle from "../components/FormTitle.vue";
 import FormStatus from '../components/FormStatus.vue';
 import FormQuestion from "../components/FormQuestion.vue";
-import FormSub from '../components/FormSub.vue';
 import FormOption from '../components/FormOption.vue';
-
-
+import FormConfirmButton from "../components/FormConfirmButton.vue"
 </script>
 
 <template>
@@ -20,11 +18,5 @@ import FormOption from '../components/FormOption.vue';
 <FormStatus :msg=status />
 <FormQuestion />
 <FormOption />
-
+<FormConfirmButton />
 </template>
-
-<style scoped>
-a {
-  color: #42b983;
-}
-</style>
