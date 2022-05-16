@@ -6,7 +6,7 @@ export const inputFormStore = defineStore("inputFormStore", {
             title: "testTitle",
             status: "アンケート作成",
             numberOfChoice: 1,
-            answers: []
+            answers: ["", "", ""],
         };
-    }
+    },
 });
