@@ -1,14 +1,20 @@
 <script setup>
 import { ref } from 'vue'
 import FormError from "../components/FormError.vue";
+
+import { storeToRefs } from 'pinia';
+import { inputFormStore } from "../store/inputForm.js"
+const store = inputFormStore();
+const {numberOfChoice} = storeToRefs(store);
+console.log(numberOfChoice.value);
 </script>
 
 <template>
   <h2>回答選択肢</h2>
   <div class="flex flex-row justify-center items-center"> 
-    <div class="optionQuestion"><p class="text-3xl">1</p><p>question</p></div>
-    <div class="optionQuestion"><p class="text-3xl">2</p><p>questions</p></div>
-    <div class="optionQuestion"><p class="text-3xl">3</p><p>questions</p></div>
+    <div v-bind:class="{'bg-pink-500 text-white': numberOfChoice == 1, 'bg-white': numberOfChoice != 1 }" class="optionQuestion " @click="numberOfChoice = 1"><p class="text-3xl">1</p><p>question</p></div>
+    <div v-bind:class="{'bg-pink-500 text-white': numberOfChoice == 2, 'bg-white': numberOfChoice != 2 }" class="optionQuestion" @click="numberOfChoice = 2"><p class="text-3xl">2</p><p>questions</p></div>
+    <div v-bind:class="{'bg-pink-500 text-white': numberOfChoice == 3, 'bg-white': numberOfChoice != 3 }" class="optionQuestion" @click="numberOfChoice = 3"><p class="text-3xl">3</p><p>questions</p></div>
   </div>
   
   <div class="">
