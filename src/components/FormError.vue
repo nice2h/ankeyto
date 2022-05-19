@@ -1,11 +1,11 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
 defineProps({
-  msg: String
-})
+    msg: String,
+});
 </script>
 
 <template>
-  <p class="text-pink-400 font-bold">{{msg}}</p>
+    <p class="text-pink-400 font-bold">{{ msg }}</p>
 </template>
