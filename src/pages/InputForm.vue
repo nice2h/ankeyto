@@ -11,6 +11,9 @@ import FormStatus from '../components/FormStatus.vue';
 import FormQuestion from "../components/FormQuestion.vue";
 import FormOption from '../components/FormOption.vue';
 import FormConfirmButton from "../components/FormConfirmButton.vue"
+import ModalForm from "../components/ModalForm.vue";
+
+const isModalEnabled = ref(false);
 </script>
 
 <template>
@@ -18,5 +21,6 @@ import FormConfirmButton from "../components/FormConfirmButton.vue"
 <FormStatus :msg=status />
 <FormQuestion />
 <FormOption />
-<FormConfirmButton />
+<FormConfirmButton msg="内容確認" @click="isModalEnabled = true" />
+<ModalForm v-if="isModalEnabled" />
 </template>

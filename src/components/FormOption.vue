@@ -12,9 +12,9 @@ console.log(numberOfChoice.value);
 <template>
   <h2>回答選択肢</h2>
   <div class="flex flex-row justify-center items-center"> 
-    <div v-bind:class="{'optionQuestionSelected': numberOfChoice == 1, 'optionQuestion': numberOfChoice != 1 }"  @click="numberOfChoice = 1"><p class="text-3xl">1</p><p>question</p></div>
-    <div v-bind:class="{'optionQuestionSelected': numberOfChoice == 2, 'optionQuestion': numberOfChoice != 2 }"  @click="numberOfChoice = 2"><p class="text-3xl">2</p><p>questions</p></div>
-    <div v-bind:class="{'optionQuestionSelected': numberOfChoice == 3, 'optionQuestion': numberOfChoice != 3 }"  @click="numberOfChoice = 3"><p class="text-3xl">3</p><p>questions</p></div>
+    <button v-bind:class="{'optionQuestionSelected': numberOfChoice == 1, 'optionQuestion': numberOfChoice != 1 }"  @click="numberOfChoice = 1"><p class="text-3xl">1</p><p>question</p></button>
+    <button v-bind:class="{'optionQuestionSelected': numberOfChoice == 2, 'optionQuestion': numberOfChoice != 2 }"  @click="numberOfChoice = 2"><p class="text-3xl">2</p><p>questions</p></button>
+    <button v-bind:class="{'optionQuestionSelected': numberOfChoice == 3, 'optionQuestion': numberOfChoice != 3 }"  @click="numberOfChoice = 3"><p class="text-3xl">3</p><p>questions</p></button>
   </div>
   
   <div v-for="n of numberOfChoice" :key="n" class="">
