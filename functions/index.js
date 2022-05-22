@@ -11,7 +11,7 @@ exports.createQuestion = functions.https.onRequest(
         response.set("Access-Control-Allow-Headers", "Content-Type");
 
         const q = new Question();
-        await q.create(request.body);
-        response.send("completed");
+        const data = await q.create(request.body);
+        response.send(data);
     }
 );

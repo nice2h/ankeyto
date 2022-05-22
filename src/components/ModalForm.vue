@@ -7,7 +7,8 @@ import FormError from "../components/FormError.vue";
 import { storeToRefs } from "pinia";
 import { inputFormStore } from "../store/inputForm.js";
 const store = inputFormStore();
-const { title, numberOfChoice, answers, isModalEnabled } = storeToRefs(store);
+const { qid, status, title, numberOfChoice, answers, isModalEnabled } =
+    storeToRefs(store);
 
 const sendData = () => {
     const url = import.meta.env.VITE_URL + "createQuestion";
@@ -21,7 +22,10 @@ const sendData = () => {
         data: params,
         url: url,
     };
-    axios(options).then((res) => {});
+    axios(options).then((res) => {
+        qid.value = res.data.id;
+        status.value = "アンケート作成完了";
+    });
 };
 </script>
 

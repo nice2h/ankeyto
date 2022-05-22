@@ -7,23 +7,34 @@ class Question {
             this.admin.initializeApp();
         }
         this.database = this.admin.database();
-        this.firestore = this.admin.firestore();
-        this.firestoreTimestamp = this.admin.firestore.Timestamp;
     }
 
     async create(data) {
         try {
-            console.log("create");
-            console.log(data);
+            data.createdAt = this.admin.database.ServerValue.TIMESTAMP;
+
+            const results = {};
+            for (let i = 0; i < data.numberOfChoice; i++) {
+                results[i] = 0;
+            }
+            data.result = results;
+
+            const date = new Date();
+            const mUnixTime = date.getTime();
+
             const hashids = new Hashids("ankeyto", 8);
-            const id = hashids.encode(100);
-            console.log(id);
-            await this.database.ref("quesitons/" + id).set(data);
-            //データベースに登録
-            //URL生成
-            //結果を返却
-        } catch {
+            const id = hashids.encode(mUnixTime);
+            const snapshot = await this.database
+                .ref("quesitons/" + id)
+                .set(data);
+
+            console.log("created : " + id);
+            console.log(data);
+
+            return { id: id };
+        } catch (e) {
             console.log("error");
+            console.log(e.message);
         }
     }
 }
