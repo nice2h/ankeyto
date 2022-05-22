@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import axios from "axios";
 import FormConfirmButton from "../components/FormConfirmButton.vue";
 import FormError from "../components/FormError.vue";
 
@@ -8,7 +9,20 @@ import { inputFormStore } from "../store/inputForm.js";
 const store = inputFormStore();
 const { title, numberOfChoice, answers, isModalEnabled } = storeToRefs(store);
 
-const sendData = () => {};
+const sendData = () => {
+    const url = import.meta.env.VITE_URL + "createQuestion";
+    let params = new URLSearchParams();
+    params.append("title", title.value);
+    params.append("numberOfChoice", numberOfChoice.value);
+    params.append("answers", answers.value);
+    const options = {
+        method: "POST",
+        headers: { "content-type": "application/x-www-form-urlencoded" },
+        data: params,
+        url: url,
+    };
+    axios(options).then((res) => {});
+};
 </script>
 
 <template>
